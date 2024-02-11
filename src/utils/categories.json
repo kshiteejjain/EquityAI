@@ -1,0 +1,592 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "isBookmarked": false,
+      "name": "All",
+      "iconPath": "stars"
+    },
+    {
+      "id": 2,
+      "isBookmarked": false,
+      "name": "Questions",
+      "iconPath": "questionCreator"
+    },
+    {
+      "id": 3,
+      "isBookmarked": false,
+      "name": "Social Media",
+      "iconPath": "socialMedia"
+    },
+    {
+      "id": 4,
+      "isBookmarked": false,
+      "name": "Digital Marketing",
+      "iconPath": "digitalMarketing",
+      "subCategories": ["DM_Email", "DM_Webinar", "DM_Website & Blog", "DM_Facebook & Instagram Ads", "DM_WhatsApp"]
+    },
+    {
+      "id": 5,
+      "isBookmarked": false,
+      "name": "Images",
+      "iconPath": "imageIcon"
+    },
+    {
+      "id": 6,
+      "isBookmarked": false,
+      "name": "Planning and Content",
+      "iconPath": "planningContent"
+    },
+    {
+      "id": 7,
+      "isBookmarked": false,
+      "name": "Question & Evaluation Generator",
+      "iconPath": "questionEvaluationGenerator"
+    },
+    {
+      "id": 8,
+      "isBookmarked": false,
+      "name": "Communication",
+      "iconPath": "communicationIcon"
+    },
+    {
+      "id": 9,
+      "isBookmarked": false,
+      "name": "Saved Bookmarks",
+      "iconPath": "bookmarked"
+    }
+  ],
+  "forms": [
+    {
+      "id": 1,
+      "isBookmarked": false,
+      "name": "Multiple Choice Questions Generator",
+      "description": "Create a multiple choice assessment on any topic, grade, diagnostic assessment, and any other kind you can imagine.",
+      "iconPath": "questionCreator",
+      "categoryName": "Questions",
+      "redirect": "MultipleChoiceQuestionsGenerator"
+    },
+    {
+      "id": 2,
+      "isBookmarked": false,
+      "name": "Match the following Questions Generator",
+      "description": "Create a Match the following  assessment on any topic, grade, diagnostic assessment, and any other kind you can imagine.",
+      "iconPath": "questionCreator",
+      "categoryName": "Questions",
+      "redirect": "MatchQuestionsGenerator"
+    },
+    {
+      "id": 3,
+      "isBookmarked": false,
+      "name": "Social Media Post Content Ideas Generator",
+      "description": "Generate creative and engaging social media post ideas tailored to your target audience and chosen platform.",
+      "iconPath": "socialMedia",
+      "categoryName": "Social Media",
+      "redirect": "SocialMediaPostContentIdeasGenerator"
+    },
+    {
+      "id": 4,
+      "isBookmarked": false,
+      "name": "Social Media Post Content Generator",
+      "description": "Craft detailed social media posts based on your conceptual ideas, specifically designed for your target audience and chosen platform.",
+      "iconPath": "socialMedia",
+      "categoryName": "Social Media",
+      "redirect": "SocialMediaPostContentGenerator"
+    },
+    {
+      "id": 5,
+      "isBookmarked": false,
+      "name": "Social Media Meme Ideas Generator",
+      "description": "Generate creative and engaging meme ideas that resonate with your target audience and are suitable for various social media platforms.",
+      "iconPath": "socialMedia",
+      "categoryName": "Social Media",
+      "redirect": "SocialMediaMemeIdeasGenerator"
+    },
+    {
+      "id": 6,
+      "isBookmarked": false,
+      "name": "Engaging Email: All Purpose",
+      "description": "Create compelling and effective email content tailored to your audience and specific objectives.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "EngagingEmailAllPurpose"
+    },
+    {
+      "id": 7,
+      "isBookmarked": false,
+      "name": "Facebook Ads Headline Generator",
+      "description": "Generate catchy and effective headlines for Facebook advertisements, specifically tailored to your campaign’s target audience and objectives.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "FacebookAdsHeadlineGenerator"
+    },
+    {
+      "id": 8,
+      "isBookmarked": false,
+      "name": "Webinar Title Generator",
+      "description": "Generate innovative and captivating titles for your webinars, tailored to engage your target audience and reflect the theme of your presentation.",
+      "iconPath": "socialMedia",
+      "categoryName": "Social Media",
+      "redirect": "WebinarTitleGenerator"
+    },
+    {
+      "id": 9,
+      "isBookmarked": false,
+      "name": "Webinar Outline Generator",
+      "description": "Generate a structured outline for your webinar, focusing on the title and audience.",
+      "iconPath": "socialMedia",
+      "categoryName": "Social Media",
+      "redirect": "WebinarOutlineGenerator"
+    },
+    {
+      "id": 10,
+      "isBookmarked": false,
+      "name": "Facebook Ads Primary Text Generator",
+      "description": "Craft compelling primary text for your Facebook ads, designed to resonate with your audience and enhance engagement on your campaigns.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "FacebookAdsPrimaryTextGenerator"
+    },
+    {
+      "id": 11,
+      "isBookmarked": false,
+      "name": "Facebook ads creative content creator (Reel/Carousel)",
+      "description": "Create dynamic and visually appealing content for Facebook ad carousels and reels, tailored to captivate your audience and drive interaction.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "FacebookAdsCreativeContentCreatorReelCarousel"
+    },
+    {
+      "id": 12,
+      "isBookmarked": false,
+      "name": "Facebook ads creative content creator (Image)",
+      "description": "Design striking single-image content for Facebook ads with engaging text to grab the attention of your audience.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "FacebookAdsCreativeContentCreatorImage"
+    },
+    {
+      "id": 13,
+      "isBookmarked": false,
+      "name": "Course Benefits Generator",
+      "description": "Generate a detailed description of the benefits of a particular course, tailored for prospective students or educators.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "CourseBenefitsGenerator"
+    },
+    {
+      "id": 14,
+      "isBookmarked": false,
+      "name": "Email Title Generator",
+      "description": "Generate captivating and effective email titles suitable for various topics and audiences.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "EmailTitleGenerator"
+    },
+    {
+      "id": 15,
+      "isBookmarked": false,
+      "name": "Course Landing Page Title Generator",
+      "description": "Create compelling and descriptive titles for course landing pages, tailored to attract the target audience and clearly communicate the course's value.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "CourseLandingPageTitleGenerator"
+    },
+    {
+      "id": 16,
+      "isBookmarked": false,
+      "name": "Automated Course Landing Page Content Generator with SEO",
+      "description": "Create an informative and engaging course landing page. The generated content will automatically include strategically placed and appropriately worded CTA buttons for optimal engagement and conversion.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "AutomatedCourseLandingPageContentGeneratorWithSeo"
+    },
+    {
+      "id": 17,
+      "isBookmarked": false,
+      "name": "Blog Title Generator",
+      "description": "Generate captivating and relevant blog titles for various topics to engage a specific audience.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "BlogTitleGenerator"
+    },
+    {
+      "id": 18,
+      "isBookmarked": false,
+      "name": "Blog Content Generator",
+      "description": "Create engaging and informative blog content for a specific audience on a chosen topic.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "BlogContentGenerator"
+    },
+    {
+      "id": 19,
+      "isBookmarked": false,
+      "name": "Facebook Reels Title Idea Generator",
+      "description": "Generate creative and engaging title ideas for Facebook Reels, tailored to your specific audience and goals.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "FacebookReelsTitleIdeaGenerator"
+    },
+    {
+      "id": 20,
+      "isBookmarked": false,
+      "name": "Comprehensive WhatsApp Message Generator for Educational Institutes",
+      "description": "Craft WhatsApp messages with high engagement potential, tailored for educational institutes to effectively communicate with students, parents, or educators.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "ComprehensiveWhatsAppMessageGeneratorForEducationalInstitutes"
+    },
+    {
+      "id": 21,
+      "isBookmarked": false,
+      "name": "SEO Content Generator",
+      "description": "Generate SEO-optimized content for web pages, including a title tag, meta description, and keywords.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "SEOContentGenerator"
+    },
+    {
+      "id": 22,
+      "isBookmarked": false,
+      "name": "Brochure Content Generator",
+      "description": "Generate engaging and informative content for brochures on various topics, skills, and services.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "BrochureContentGenerator"
+    },
+    {
+      "id": 23,
+      "isBookmarked": false,
+      "name": "Generate AI Images",
+      "description": "Experience the mesmerizing world of AI-generated images, where algorithms create stunning visuals that blur the line between reality and imagination.",
+      "iconPath": "imageIcon",
+      "categoryName": "Images",
+      "redirect": "ImageGenerator"
+    },
+    {
+      "id": 24,
+      "isBookmarked": false,
+      "name": "Open Text Prompt",
+      "description": "Create Open text prompt based on any subject.",
+      "iconPath": "questionCreator",
+      "categoryName": "Questions",
+      "redirect": "OpenText"
+    },
+    {
+      "id": 25,
+      "isBookmarked": false,
+      "name": "Lesson Plan Generator",
+      "description": "This form is designed to generate a detailed lesson plan.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "LessonPlanGenerator"
+    },
+    {
+      "id": 26,
+      "isBookmarked": false,
+      "name": "21st Century CLD based Lesson Plan",
+      "description": "This form is designed to help educators create lesson plans that integrate 21st Century Competencies, focusing on fostering critical thinking, creativity, collaboration, and communication among students.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "TwentyFirstCenturyCLDForm"
+    },
+    {
+      "id": 27,
+      "isBookmarked": false,
+      "name": "Story Creation Generator",
+      "description": "This form is structured to assist in crafting a story by outlining key narrative elements such as setting, plot, conflict, character, and theme.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "StoryCreationGenerator"
+    },
+    {
+      "id": 28,
+      "isBookmarked": false,
+      "name": "Theme Based Age Appropriate Story Generator",
+      "description": "This form is designed for creating stories tailored to specific age groups and themes, ensuring the content is both suitable and engaging for the intended audience.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "ThemeBasedAgeAppropriateStoryGenerator"
+    },
+    {
+      "id": 29,
+      "isBookmarked": false,
+      "name": "Text Summary Generator",
+      "description": "This form is designed to assist in creating concise and accurate summaries of provided text materials.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "TextSummaryGenerator"
+    },
+    {
+      "id": 30,
+      "isBookmarked": false,
+      "name": "Educational Activity Generator",
+      "description": "Create customized educational activities suitable for various educational settings and objectives.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "EducationalActivityGenerator"
+    },
+    {
+      "id": 31,
+      "isBookmarked": false,
+      "name": "Text Rewriter Generator",
+      "description": "Create a tool to rephrase or rewrite given text in a more engaging, simplified, or formal tone while maintaining the original meaning.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "TextRewriterGenerator"
+    },
+    {
+      "id": 32,
+      "isBookmarked": false,
+      "name": "Text Translator Generator",
+      "description": "This tool translates text from one language to another while maintaining the original meaning.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "TextTranslatorGenerator"
+    },
+    {
+      "id": 33,
+      "isBookmarked": false,
+      "name": "Syllabus Generator",
+      "description": "This tool assists in creating detailed syllabi for various courses and subjects. Ideal for educators and academic institutions to outline course content, objectives, and assessments for different grade levels and educational boards.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "SyllabusGenerator"
+    },
+    {
+      "id": 34,
+      "isBookmarked": false,
+      "name": "Workshop Outline Generator",
+      "description": "This tool helps in designing detailed outlines for various types of workshops to plan and structure their workshops effectively.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "WorkshopOutlineGenerator"
+    },
+    {
+      "id": 35,
+      "isBookmarked": false,
+      "name": "PPT Outline Creator",
+      "description": "This tool helps in designing detailed outlines for various types of workshops to plan and structure their workshops effectively.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "PPTOutlineCreator"
+    },
+    {
+      "id": 36,
+      "isBookmarked": false,
+      "name": "Project-Based Learning Plan Generator",
+      "description": "Create structured plans for project-based learning activities.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "ProjectBasedLearningPlanGenerator"
+    },
+    {
+      "id": 37,
+      "isBookmarked": false,
+      "name": "Course Outline Generator",
+      "description": "This tool assists in creating detailed outlines for academic or training courses, planning course content and delivery.",
+      "iconPath": "planningContent",
+      "categoryName": "Planning and Content",
+      "redirect": "CourseOutlineGenerator"
+    },
+    {
+      "id": 38,
+      "isBookmarked": false,
+      "name": "Custom Question Generator",
+      "description": "This form helps create tailored questions for educational or training purposes, ensuring they match specific requirements and formats.",
+      "iconPath": "questionEvaluationGenerator",
+      "categoryName": "Question & Evaluation Generator",
+      "redirect": "CustomQuestionGenerator"
+    },
+    {
+      "id": 39,
+      "isBookmarked": false,
+      "name": "Assignment Creation Tool",
+      "description": "Create a customized assignment in various formats for different educational levels and subjects.",
+      "iconPath": "questionEvaluationGenerator",
+      "categoryName": "Question & Evaluation Generator",
+      "redirect": "AssignmentCreationTool"
+    },
+    {
+      "id": 40,
+      "isBookmarked": false,
+      "name": "Letter of Recommendation Generator",
+      "description": "Create a personalized and professional Letter of Recommendation for students or colleagues in an educational or professional setting.",
+      "iconPath": "communicationIcon",
+      "categoryName": "Communication",
+      "redirect": "LetterOfRecommendationGenerator"
+    },
+    {
+      "id": 41,
+      "isBookmarked": false,
+      "name": "Thank You Note Generator",
+      "description": "Create a personalized Thank You Note for various occasions. Tailor your message to express gratitude in a sincere and heartfelt manner..",
+      "iconPath": "communicationIcon",
+      "categoryName": "Communication",
+      "redirect": "ThankYouNoteGenerator"
+    },
+    {
+      "id": 42,
+      "isBookmarked": false,
+      "name": "Class Newsletter Generator",
+      "description": "Create a customized newsletter for your class, highlighting recent activities, achievements, and upcoming events.",
+      "iconPath": "communicationIcon",
+      "categoryName": "Communication",
+      "redirect": "ClassNewsletterGenerator"
+    },
+    {
+      "id": 43,
+      "isBookmarked": false,
+      "name": "Text Proofreader Prompt Generator",
+      "description": "Generate prompts to proofread and correct texts in various contexts, ensuring grammatical accuracy, appropriate tone, and clarity.",
+      "iconPath": "communicationIcon",
+      "categoryName": "Communication",
+      "redirect": "TextProofreaderPromptGenerator"
+    },
+    {
+      "id": 44,
+      "isBookmarked": false,
+      "name": "Professional Email Generator",
+      "description": "Create professional emails tailored to specific needs and contexts. Ideal for business communication, formal requests, and other professional interactions.",
+      "iconPath": "communicationIcon",
+      "categoryName": "Communication",
+      "redirect": "ProfessionalEmailGenerator"
+    },
+    {
+      "id": 45,
+      "isBookmarked": false,
+      "name": "Report Card Comments",
+      "description": "Generate personalized and constructive report card comments for students.",
+      "iconPath": "communicationIcon",
+      "categoryName": "Communication",
+      "redirect": "ReportCardCommentsGenerator"
+    },
+    {
+      "id": 46,
+      "isBookmarked": false,
+      "name": "Email Responder Generator",
+      "description": "Create tailored responses to received emails, ensuring a professional and appropriate reply for various contexts.",
+      "iconPath": "communicationIcon",
+      "categoryName": "Communication",
+      "redirect": "EmailResponderGenerator"
+    },
+    {
+      "id": 47,
+      "isBookmarked": false,
+      "name": "Email Content: Nurturing",
+      "description": "Generate effective email content on the basis of lead nurturing ideas.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "DM_Email",
+      "redirect": "EmailContentNurturing"
+    },
+    {
+      "id": 48,
+      "isBookmarked": false,
+      "name": "Lead Nurturing Email Ideas",
+      "description": "Generate innovative and engaging email ideas for lead nurturing campaigns.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "DM_Email",
+      "redirect": "LeadNurturingEmailIdeas"
+    },
+    {
+      "id": 49,
+      "isBookmarked": false,
+      "name": "Webinar Content: Stories/Example/Stats/Activities",
+      "description": "Generate engaging and informative webinar content like Stories /Example/Stats/Activities.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "DM_Webinar",
+      "redirect": "WebinarContentStories"
+    },
+    {
+      "id": 50,
+      "isBookmarked": false,
+      "name": "Facebook Ad: Ad With Problem Solution Statement",
+      "description": "Create dynamic and appealing content for Facebook ads in Problem Solution Statement.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "DM_Facebook & Instagram Ads",
+      "redirect": "FacebookAd"
+    },
+    {
+      "id": 51,
+      "isBookmarked": false,
+      "name": "Facebook ad: Carousel",
+      "description": "Create dynamic and appealing content for Facebook ad carousels, tailored to captivate your audience and drive interaction.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "FacebookAdCarousel"
+    },
+    {
+      "id": 52,
+      "isBookmarked": false,
+      "name": "Text Expander",
+      "description": "Quickly generate more detailed and comprehensive content with ease.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "DM_Website & Blog",
+      "redirect": "TextExpander"
+    },
+    {
+      "id": 53,
+      "isBookmarked": false,
+      "name": "Blog Outline",
+      "description": "Generate the detailed outline for your blog title",
+      "iconPath": "digitalMarketing",
+      "categoryName": "DM_Website & Blog",
+      "redirect": "BlogOutline"
+    },
+    {
+      "id": 54,
+      "isBookmarked": false,
+      "name": "Facebook Ads Targeting",
+      "description": "Facebook Ads Targeting",
+      "iconPath": "digitalMarketing",
+      "categoryName": "Digital Marketing",
+      "redirect": "FacebookAdsTargeting"
+    },
+    {
+      "id": 55,
+      "isBookmarked": false,
+      "name": "Facebook Marketing Campaign Data Analysis",
+      "description": "Find insights about your campaign and suggestions to improve performance.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "DM_Facebook & Instagram Ads",
+      "redirect": "MarketingCampaignDataAnalysis"
+    },
+    {
+      "id": 56,
+      "isBookmarked": false,
+      "name": "WhatsApp Message Generator",
+      "description": "Crafting captivating messages for courses and events to engage and entice participants effortlessly.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "DM_WhatsApp",
+      "redirect": "WhatsAppMessageGenerator"
+    },
+    {
+      "id": 57,
+      "isBookmarked": false,
+      "name": "Facebook Video Ads Script",
+      "description": "Create dynamic and visually appealing content for Facebook video.reel ad, tailored to captivate your audience and drive interaction.",
+      "iconPath": "digitalMarketing",
+      "categoryName": "DM_Facebook & Instagram Ads",
+      "redirect": "FacebookVideoAdsScript"
+    },
+    {
+      "id": 58,
+      "isBookmarked": false,
+      "name": "Social Media Calendar Generator",
+      "description": "Generate a daily social media posting calendar for educational brands. Ideal for maintaining a consistent online presence.",
+      "iconPath": "socialMedia",
+      "categoryName": "Social Media",
+      "redirect": "SocialMediaCalendarGenerator"
+    },
+    {
+      "id": 59,
+      "isBookmarked": false,
+      "name": "Sales Pitch Generator",
+      "description": "Generate Effective Sales pitch for your Services to convert your Prospects.",
+      "iconPath": "salesIcon",
+      "categoryName": "Sales",
+      "redirect": "SalesPitchGenerator"
+    }
+  ]
+}

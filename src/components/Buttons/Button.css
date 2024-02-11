@@ -1,0 +1,44 @@
+@import "../../index.css";
+.button{
+    padding: 0.7rem 2rem;
+    text-align: center;
+    background-color: var(--primary);
+    color: #ffffff;
+    border-radius: 2rem;
+    font-size: 14px;
+    font-weight: bold;
+    border: 1px solid var(--primary);
+    transition: all .3s;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: #fff;
+    border-color: var(--primary);
+    color: #0e75be;
+    transition: all .3s;
+}
+.buttonSecondary{
+    color: var(--mediumGray);
+    font-size: 14px;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+    font-weight: bold;
+}
+.buttonSecondary:hover, .buttonSecondary:focus{
+    border:0;
+    color: #0e75be;
+    outline: 0;
+}
+.buttonDangerous {
+    color: var(--error);
+    font-size: 14px;
+    background-color: transparent;
+    border: 0;
+    padding: 0;
+}
+.buttonDangerous:hover, .buttonDangerous:focus{
+    border:0;
+    color: #0e75be;
+    outline: 0;
+}

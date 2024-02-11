@@ -1,0 +1,182 @@
+@import "./index.css";
+#root {
+  margin: 0 auto;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+}
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+}
+.page-wrapper {
+  margin: 2rem 0;
+}
+.page-wrapper .container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+img {
+  max-width: 100%;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.form-group label {
+  font-weight: bold;
+  font-size: calc(var(--baseFontSize) - 3px);
+  margin-bottom: 0.2rem;
+  display: block;
+}
+.form-control {
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  font-size: calc(var(--baseFontSize) - 3px);
+  background-color: var(--white);
+  color: var(--black);
+  width: 100%;
+  border: 1px solid var(--gray);
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  resize: none;
+}
+.checkbox-option{
+  display: flex;
+}
+.asterisk {
+  color: var(--error);
+  font-size: var(--baseFontSize);
+  line-height: 10px;
+}
+.togglePassword{
+  position: absolute;
+  font-size: calc(var(--baseFontSize) - 5px);
+  right: 8px;
+  top: 29px;
+  cursor: pointer;
+  opacity: 0.4;
+}
+.togglePassword img{
+  width: 20px;
+}
+.noDataFoundImage {
+  max-width: 60%;
+  margin: 100px auto;
+}
+.generator-section h2 {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  text-transform: capitalize;
+}
+.generator-section h3 {
+  font-size: var(--baseFontSize);
+  margin: 0 0 2rem 0;
+  font-weight: normal;
+}
+.generator-section {
+  background-color: var(--white);
+  width: 49%;
+  border-radius: 0.5rem;
+  padding: 1.5rem 2rem;
+  box-sizing: border-box;
+  text-align: left;
+  min-height: calc(100vh - 180px);
+}
+.backButton {
+  text-align: left;
+  margin-bottom: 13px;
+}
+.uploadForm {
+  max-width: 500px;
+  background-color: #ffffff;
+  margin: 3rem auto 0 auto;
+  padding: 3rem;
+  text-align: left;
+}
+.uploadForm h2 {
+  font-size: 20px;
+  margin-top: 0;
+}
+.uploadForm .form-group {
+  margin: 3rem 0;
+  border: 1px solid #ddd;
+  padding: 1rem;
+}
+.uploadForm button {
+  margin-right: 2rem;
+}
+.table{
+  border-collapse: collapse;
+  width: 100%;
+}
+.table tr:hover{
+  background-color: var(--lightGray);
+}
+.table th, .table td{
+  text-align: left;
+  padding: 0.3rem;
+  border: 1px solid var(--grayBlue);
+  font-size: calc(var(--baseFontSize) - 2px);
+  white-space: nowrap;
+}
+.table td button{
+  margin-left: 1rem;
+}
+.table td button:first-child{
+  margin-left: 0;
+}
+.table td .cellHighlight{
+    padding: 2px 5px;
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+    font-size: calc(var(--baseFontSize) - 4px);
+}
+.table td .cellHighlight.blue{
+  background-color: var(--primary);
+  color: var(--white);
+}
+.table td .cellHighlight.red{
+  background-color: var(--error);
+  color: var(--white);
+}
+.table td input{
+  width: auto;
+}
+.errorMessage{
+  color: var(--error);
+  font-size: calc(var(--baseFontSize) - 3px);
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+@media (prefers-color-scheme: dark) {
+  ::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}
+button{
+  margin: 0;
+}
+}
+@media(max-width:767px) {
+  .page-wrapper .container {
+    flex-direction: column;
+  }
+  .chipList {
+    width: 100%;
+    min-height: auto;
+    display: block;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+  .chipList li {
+    display: inline-block;
+    border-right: 1px solid var(--gray);
+    padding: 0.4rem 1rem;
+  }
+  .generator-section{
+    width: 100%;
+  }
+}

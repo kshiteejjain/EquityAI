@@ -1,0 +1,7 @@
+.login-visual{
+    width: 50%;
+    background-image: url(../../assets/login-bg.jpg);
+    /* background-image: url(../../assets/login-bg.svg); */
+    background-size: cover;
+    background-position: center;
+}
