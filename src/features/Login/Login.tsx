@@ -24,7 +24,7 @@ const Login = () => {
     const handleTogglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
-    const uploadDataToFirestore = async (e) => {
+    const uploadDataToFirestore = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         setLoader(true);
         try {

@@ -111,7 +111,7 @@ const Register = () => {
                     console.log('FAILED...', error);
                 });
         } catch (error) {
-            alert('An error occurred:', error);
+            alert(`An error occurred: ${error}`);
         }
     };
     const handleInputChangeOTP = (e: ChangeEvent<HTMLInputElement>) => {

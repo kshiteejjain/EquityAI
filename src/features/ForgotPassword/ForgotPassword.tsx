@@ -32,7 +32,7 @@ const ForgotPassword = () => {
     
     // Example usage
     const randomPassword = generateRandomPassword();
-    const handleResetPassword = async (e) => {
+    const handleResetPassword = async (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         try {
             const collectionRef = collection(firestore, 'RegisteredUsers');
