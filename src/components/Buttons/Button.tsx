@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import './Button.css';
 type Props = {
     title?: string;
@@ -22,7 +21,3 @@ const Button = ({ title, onClick, isSecondary, isDangerous }: Props) => {
 };
 
 export default Button;
-
-Button.propTypes = {
-    title: PropTypes.string
-};
