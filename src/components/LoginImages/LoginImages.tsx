@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import logo from '../../assets/logo.svg';
 import './LoginImages.css';
 const LoginImages = () => {
     const [image, setImage] = useState('');
@@ -16,7 +15,6 @@ const LoginImages = () => {
     }, []);
     return (
         <>
-            <img src={logo} alt="Logo" className="login-logo" />
             <div className='login-visual' style={{ backgroundImage: `url(${image})` }}>
             </div>
         </>

@@ -1,15 +1,16 @@
 @import "../../index.css";
 .button{
-    padding: 0.7rem 2rem;
+    padding: 0.9rem 2rem;
     text-align: center;
     background-color: var(--primary);
     color: #ffffff;
-    border-radius: 2rem;
+    border-radius: 0.3rem;
     font-size: 14px;
     font-weight: bold;
     border: 1px solid var(--primary);
     transition: all .3s;
     cursor: pointer;
+    width: 100%;
 }
 .button:hover{
     background-color: #fff;

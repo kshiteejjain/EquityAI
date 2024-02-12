@@ -46,6 +46,7 @@
   --error: #e60000;
   --lightBlue: #ebf2ff;
   --grayBlue: #ebedf2;
+  --lightBlue: #dadce0
 }
 ::placeholder {
   color: var(--mediumGray);
@@ -66,7 +67,7 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background-color: var(--lightGray);
+  background-color: var(--white);
 }
 h1 {
   font-size: 2em;

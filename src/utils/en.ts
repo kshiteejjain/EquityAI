@@ -2,7 +2,7 @@
 /* eslint-disable max-lines */
 const Strings = {
     login: {
-        title: 'Login to Equity AI',
+        title: 'Sign In',
         buttonLogin: 'Login',
         email: 'Email',
         password: 'Password',
@@ -12,7 +12,7 @@ const Strings = {
         title: 'Free Trial to Equity AI',
     },
     register: {
-        title: 'Register to Equity AI',
+        title: 'Sign Up',
     },
     otp: {
         title: 'Enter Your 6 Digit OTP',

@@ -1,71 +1,46 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from '../../components/Buttons/Button';
 import Strings from '../../utils/en';
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { firestore } from '../../utils/firebase';
 import LoginImages from "../../components/LoginImages/LoginImages";
-import Loader from "../../components/Loader/Loader";
-import ShowPassword from '../../assets/showPassword.svg';
-import HidePassword from '../../assets/hidePassword.svg'
+import logo from '../../assets/logo.svg';
+import googleLogo from '../../assets/google.svg';
+import facebookLogo from '../../assets/facebook.svg';
+import twitterLogo from '../../assets/twitter.svg';
+import appleLogo from '../../assets/apple.svg';
+import yahooLogo from '../../assets/yahoo.svg';
+import emailLogo from '../../assets/email.svg';
+
 import './Login.css';
+import Register from "../Register/Register";
 
 const Login = () => {
-    const [userDetails, setUserDetails] = useState({
-        email: '',
-        password: ''
-    });
-    const [loader, setLoader] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
+    
     const navigate = useNavigate();
-    const handleForgotPassword = () => {
-        navigate('/ForgotPassword')
-    }
-    const handleTogglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-    };
-    const uploadDataToFirestore = async (e: { preventDefault: () => void; }) => {
-        e.preventDefault();
-        setLoader(true);
-        try {
-            const collectionRef = collection(firestore, 'RegisteredUsers');
-            // Check if a document with the given email and password exists
-            const q = query(
-                collectionRef,
-                where('email', '==', userDetails.email),
-                where('password', '==', userDetails.password)
-            );
-            const querySnapshot = await getDocs(q);
-            if (!querySnapshot.empty) {
-                // Document with this email and password exists
-                querySnapshot.forEach((doc) => {
-                    const data = doc.data();
-                    const remainCredits = data?.remain_credits;
-                    const isActiveUser = data?.isActiveUser;
-                    sessionStorage.setItem("isLoggedIn", String(true));
-                    sessionStorage.setItem("username", data?.email);
-                    setLoader(false);
-                    if (remainCredits <= 0 || isActiveUser === false) {
-                        navigate("/ContactUs");
-                    } else {
-                        navigate("/Categories");
-                    }
-                });
-            } else {
-                // No document with this email and password found
-                alert('You have entered wrong username and password');
-                setLoader(false);
-            }
-        } catch (error) {
-            alert('Error querying data from Firestore: ' + error);
-            setLoader(false);
-        }
-    };
     return (
         <div className='login-wrapper'>
+            <LoginImages />
             <div className='login-form'>
+                <img src={logo} alt="Logo" className="login-logo" />
                 <h1>{Strings.login.title}</h1>
-                <form onSubmit={uploadDataToFirestore}>
+                <div className="social-login">
+                    <button className="social-login-button"> <img src={googleLogo} /> <span> Login From Google</span> </button>
+                    <div className="social-login-icons">
+                        <button className="social-login-button"> <img src={facebookLogo} /> </button>
+                        <button className="social-login-button"> <img src={twitterLogo} /> </button>
+                        <button className="social-login-button"> <img src={appleLogo} /> </button>
+                        <button className="social-login-button"> <img src={yahooLogo} /> </button>
+                    </div>
+                    <div className="separator"><div className="separator-text   ">or</div></div>
+                    <div className="social-login-email">
+                        <button className="social-login-button"> <img src={emailLogo} /> Email</button>
+                    </div>
+                </div>
+                <div className="login-footer">
+                    <p className="description-qD3tmqQv">Do not have an account? <a className="link-qD3tmqQv" href="#">Sign up</a></p>
+                </div>
+                {/* <form onSubmit={uploadDataToFirestore}>
                     <div className='form-group'>
                         <label htmlFor='gradeLevel'>{Strings.login.email}</label>
                         <input
@@ -96,11 +71,11 @@ const Login = () => {
                 </form>
                 <div className="additional-actions">
                     <Button title={Strings.ForgotPassword.title} isSecondary type="button" onClick={handleForgotPassword} />
-                    <Button isSecondary title={Strings.login.register} type="button" onClick={()=> navigate('/Register')} />
+                    <Button isSecondary title={Strings.login.register} type="button" onClick={() => navigate('/Register')} />
                     {loader && <Loader />}
-                </div>
+                </div> */}
             </div>
-            <LoginImages />
+            <Register />
         </div>
     )
 };
