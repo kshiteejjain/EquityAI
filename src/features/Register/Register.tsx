@@ -1,7 +1,3 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-import { firestore } from '../../utils/firebase';
-import { collection, addDoc, getDocs, where, query } from 'firebase/firestore';
-import { useNavigate } from 'react-router-dom';
 import Strings from '../../utils/en';
 import logo from '../../assets/logo.svg';
 import googleLogo from '../../assets/google.svg';
@@ -12,7 +8,6 @@ import yahooLogo from '../../assets/yahoo.svg';
 import emailLogo from '../../assets/email.svg';
 import './Register.css';
 const Register = () => {
-    const navigate = useNavigate();
     return (
         <div className='login-wrapper'>
             <div className='login-form'>

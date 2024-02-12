@@ -1,8 +1,4 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Strings from '../../utils/en';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { firestore } from '../../utils/firebase';
 import LoginImages from "../../components/LoginImages/LoginImages";
 import logo from '../../assets/logo.svg';
 import googleLogo from '../../assets/google.svg';
@@ -16,8 +12,6 @@ import './Login.css';
 import Register from "../Register/Register";
 
 const Login = () => {
-    
-    const navigate = useNavigate();
     return (
         <div className='login-wrapper'>
             <LoginImages />
