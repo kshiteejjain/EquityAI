@@ -1,96 +1,65 @@
-// Import necessary libraries and components
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { collection, getDocs, query, updateDoc, where } from 'firebase/firestore';
-import { firestore } from '../../utils/firebase';
-import emailjs from '@emailjs/browser';
-import Button from '../../components/Buttons/Button';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Strings from '../../utils/en';
-import LoginImages from '../../components/LoginImages/LoginImages';
+import LoginImages from "../../components/LoginImages/LoginImages";
+import Button from "../../components/Buttons/Button";
+import showPassword from '../../assets/showPassword.svg';
+import hidePassword from '../../assets/hidePassword.svg';
+import logo from '../../assets/logo.svg';
+import close from '../../assets/close.svg';
+
 import './ForgotPassword.css';
-const ForgotPassword = () => {
+
+const LoginWithEmail = () => {
+    const navigate = useNavigate();
+    const [isShowPassword, setIsShowPassword] = useState(false);
     const [userDetails, setUserDetails] = useState({
         email: '',
+        password: ''
     });
-    const navigate = useNavigate();
-    const generateRandomPassword =  () => {
-        const upEducators = "upEducators";
-        const alphanumericChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        const specialChars = "!@#$%^&*()_+{}[]|;:,.<>?";
-    
-        // Generate a random alphanumeric string
-        const randomAlphanumeric = Array.from({ length: 6 }, () => alphanumericChars[Math.floor(Math.random() * alphanumericChars.length)]).join('');
-    
-        // Choose a random special character
-        const randomSpecialChar = specialChars[Math.floor(Math.random() * specialChars.length)];
-    
-        // Combine the components to form the password
-        const password = `${upEducators}${randomSpecialChar}${randomAlphanumeric}`;
-    
-        return password;
-    }
-    
-    // Example usage
-    const randomPassword = generateRandomPassword();
-    const handleResetPassword = async (e: { preventDefault: () => void; }) => {
-        e.preventDefault();
-        try {
-            const collectionRef = collection(firestore, 'RegisteredUsers');
-            // Check if a document with the given email exists
-            const q = query(
-                collectionRef,
-                where('email', '==', userDetails.email)
-            );
-            const querySnapshot = await getDocs(q);
-            if (!querySnapshot.empty) {
-                // Document with this email exists
-                const docRef = querySnapshot.docs[0].ref;
-                // Update the password field in the document
-                await updateDoc(docRef, {
-                    password: randomPassword
-                });
-                alert('Password changed successfully, Redirecting to Login.');
-                emailjs.send(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_FORGOT_PASSWORD, {
-                    to_email: userDetails.email,
-                    message: randomPassword,
-                }, import.meta.env.VITE_EMAILJS_API_KEY)
-                    .then(response => {
-                        console.log('SUCCESS!', response);
-                    }, error => {
-                        console.log('FAILED...', error);
-                    });
-                navigate('/')
-                // Now you can redirect or perform any other actions
-            } else {
-                // No document with this email found
-                alert('Email Id not found, Kindly contact to admin.');
-            }
-        } catch (error) {
-            alert('Error updating password in Firestore: ' + error);
-        }
-    };
+    const handleTogglePasswordVisibility = () => setIsShowPassword((isOpen: any) => !isOpen);
+    const handleSignIn = () => navigate('/');
     return (
         <div className='login-wrapper'>
-            <div className='login-form'>
-                <h1>{Strings.ForgotPassword.title}</h1>
-                <form onSubmit={handleResetPassword}>
+            <LoginImages />
+            <div className='login-wrapper-inner'>
+                <img src={close} alt="Close" className="close-icon" onClick={handleSignIn} />
+                <form className='login-form-custom'>
+                    <img src={logo} alt="Logo" className="login-logo" />
+                    <h1>{Strings.ForgotPassword.title}</h1>
                     <div className='form-group'>
-                        <label htmlFor='email'>Email <span className='asterisk'>*</span></label>
+                        <label htmlFor='email'>{Strings.ForgotPassword.email}</label>
                         <input
                             type='email'
-                            required
+                            autoComplete="off"
                             className='form-control'
-                            name='email'
+                            required
+                            name="email"
                             value={userDetails.email}
-                            placeholder='Enter Email'
                             onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })}
                         />
                     </div>
-                    <Button title='Reset Password' type='submit' />
+                    <div className='form-group'>
+                        <label htmlFor='password'>{Strings.ForgotPassword.password}</label>
+                        <input
+                            type={isShowPassword ? 'text' : 'password'}
+                            className='form-control'
+                            required
+                            name="password"
+                            value={userDetails.password}
+                            onChange={(e) => setUserDetails({ ...userDetails, password: e.target.value })}
+                        />
+                        <div className="togglePassword" onClick={handleTogglePasswordVisibility}>
+                            {isShowPassword ? <img src={hidePassword} /> : <img src={showPassword} />}
+                        </div>
+                    </div>
+                    <Button title={Strings.ForgotPassword.buttonTitle} type="submit" />
                 </form>
+                <div className="login-footer">
+                        <p className="description-qD3tmqQv">Already have an account? <button onClick={handleSignIn}>Sign in</button></p>
+                </div>
             </div>
-            <LoginImages />
         </div>
-    );
+    )
 };
-export default ForgotPassword;
+export default LoginWithEmail;

@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable max-lines */
 const Strings = {
-    login: {
+    signIn: {
         title: 'Sign In',
         buttonLogin: 'Login',
         email: 'Email',
@@ -11,8 +11,12 @@ const Strings = {
     FreeTrial: {
         title: 'Free Trial to Equity AI',
     },
-    register: {
+    signUp: {
         title: 'Sign Up',
+    },
+    customSigninSignUp: {
+        signIn:"Sign in with email",
+        signUp:"Sign up with email"
     },
     otp: {
         title: 'Enter Your 6 Digit OTP',
@@ -21,6 +25,9 @@ const Strings = {
     },
     ForgotPassword: {
         title: 'Forgot Password?',
+        email: 'Enter Your Email',
+        password: 'Reset Password',
+        buttonTitle: 'Reset Now'
     },
     header: {
         signOut: 'Sign Out',

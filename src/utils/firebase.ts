@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, onSnapshot } from 'firebase/firestore';
-import { getAuth } from 'firebase/auth';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
 import { getAnalytics } from "firebase/analytics";
 const firebaseConfig = {
     apiKey: "AIzaSyBR5UmOZZtuDgTzURv-G_FepGiuoObONhE",
@@ -16,4 +16,11 @@ const firestore = getFirestore(firebaseApp);
 const usersCollectionData = collection(firestore, "RegisteredUsers");
 const auth = getAuth(firebaseApp);
 const analytics = getAnalytics(firebaseApp);
+const provider = new GoogleAuthProvider();
+  
+// whenever a user interacts with the provider, we force them to select an account
+provider.setCustomParameters({   
+    prompt : "select_account "
+});
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 export { firebaseApp, firestore, auth, usersCollectionData, onSnapshot, analytics };

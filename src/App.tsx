@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Login from './features/Login/Login';
 import ForgotPassword from './features/ForgotPassword/ForgotPassword';
-import Register from './features/Register/Register';
 import './App.css';
 
 type Props = {
@@ -14,7 +13,6 @@ function App() {
     <React.StrictMode>
       <Router>
       <Routes>
-          <Route path="/Register" element={<Register />} />
           <Route path="/ForgotPassword" element={<ForgotPassword />} />
           <Route path="/*" element={<MainApp isLoggedIn={isLoggedIn} />} />
         </Routes>
