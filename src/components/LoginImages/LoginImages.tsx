@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import loginVideo from '../../assets/loginVideo.mp4'
+
 import './LoginImages.css';
 const LoginImages = () => {
     const [image, setImage] = useState('');
@@ -15,7 +17,11 @@ const LoginImages = () => {
     }, []);
     return (
         <>
-            <div className='login-visual' style={{ backgroundImage: `url(${image})` }}>
+            <div className='login-visual'>
+            <video width="auto" height="auto" autoPlay muted loop>
+                <source src={loginVideo} type="video/ogg" />
+                Your browser does not support the video tag.
+            </video>
             </div>
         </>
     )
