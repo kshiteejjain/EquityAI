@@ -1,0 +1,80 @@
+.header{
+    display: flex;
+    padding: 1.5rem 0;
+    background-color: var(--white);
+  }
+  .logo{
+    max-width: 60px;
+  }
+  .header .container{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items:center;
+  }
+  .username{
+    font-size: calc(var(--baseFontSize) - 2px);
+    display: flex;
+    align-items: center;
+  }
+  .username span{
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .headerRight{
+    text-align: right;
+    position: relative;
+    display: flex;
+  }
+  .creditDetails.hidden{
+    display: none;
+  }
+  .creditDetails{
+    position: absolute;
+    right: 0;
+    background-color: var(--white);
+    padding: 1rem;
+    border: 1px solid var(--gray);
+    min-width: 12rem;
+    border-radius: 7px;
+    top: 50px;
+    z-index: 999;
+    text-align: left;
+  }
+  .creditDetails p{
+    font-size: var(--baseFontSize);
+    margin: 0 0 10px 0;
+  }
+  .defaultProfile{
+    margin-left: 10px;
+  }
+  .defaultProfile img{
+    max-width: 40px;
+    cursor: pointer;
+    border-radius: 40px;
+  }
+  nav{
+    display: flex;
+  }
+  nav p{
+    background: transparent;
+    font-size: var(--baseFontSize);
+    border: none;
+    cursor: pointer;
+    color: var(--darkGray);
+    padding: 0 10px;
+    margin: 0 2px;
+  }
+  nav p:hover, nav p:focus{
+   border: none;
+   outline: none;
+   color: var(--primary);
+  }
+  @media(max-width:767px){
+    .header img{
+      max-width: 150px;
+    }
+    .header .defaultProfile img{
+      max-width: 22px;
+    }
+  }

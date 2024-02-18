@@ -1,0 +1,29 @@
+.profile-cards{
+    background-color: var(--white);
+    padding: 1rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--grayBlue);
+    width: 100%;
+    box-sizing: border-box;
+}
+.profile-cards h2{
+    font-size: calc(var(--baseFontSize) + 3px);
+    text-align: left;
+    margin: 0 0 20px 0;
+    color: var(--primary);
+}
+.profile-cards p{
+    text-align: left;
+}
+.profile-flex{
+    display: flex;
+    justify-content: space-between;
+}
+.profile-flex .profile-cards{
+    width: 49%;
+}
+.link{
+    color: var(--primary);
+    cursor: pointer;
+}

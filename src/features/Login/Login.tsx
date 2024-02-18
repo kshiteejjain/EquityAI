@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import LoginWithEmail from '../LoginWithEmail/LoginWithEmail';
 import Strings from '../../utils/en';
 import LoginImages from "../../components/LoginImages/LoginImages";
@@ -17,26 +18,53 @@ import './Login.css';
 
 const Login = () => {
     const [isRegister, setIsRegister] = useState(false);
-    const [isRegisterTitle, setIsRegisteTitle] = useState(false);
+    const [isRegisterTitle, setIsRegisterTitle] = useState(false);
     const [isLoginWithEmail, setIsLoginWithEmail] = useState(false);
+    const navigate = useNavigate();
 
     const handleSignUp = () => {
         setIsRegister(true)
         setIsLoginWithEmail(false);
-        setIsRegisteTitle(true)
+        setIsRegisterTitle(true)
     };
     const handleSignIn = () => {
         setIsRegister(false);
         setIsLoginWithEmail(false);
-        setIsRegisteTitle(false)
+        setIsRegisterTitle(false)
     }
     const handleLoginWithEmail = () => {
         setIsLoginWithEmail(true);
     }
     const logGoogleUser = async () => {
-        const response = await signInWithGooglePopup();
-        console.log(response);
+        try {
+            const response = await signInWithGooglePopup();
+            if (response?.user) {
+                const user = response.user;
+                const idToken = await user.getIdToken();
+    
+                const userData = {
+                    displayName: user.displayName,
+                    email: user.email,
+                    photoURL: user.photoURL,
+                    accessToken: idToken // Include the access token if needed
+                };
+    
+                alert(JSON.stringify(userData));
+                localStorage.setItem('usrAcsData', JSON.stringify(userData));
+                navigate('/Home');
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        }
     }
+    
+    
+
+    // useEffect(() => {
+    //     if (localStorage.getItem('acTkn') === 'true') {
+    //       navigate('/Home');
+    //     }
+    //   }, [navigate]);
 
     return (
         <div className='login-wrapper'>
@@ -44,13 +72,13 @@ const Login = () => {
             <div className='login-wrapper-inner'>
                 {isLoginWithEmail ? <>
                     <img src={logo} alt="Logo" className="login-logo" />
-                    <h1>{isRegisterTitle ? `${Strings.customSigninSignUp.signUp}` : `${Strings.customSigninSignUp.signIn}`}</h1>
+                    <h1>{isRegisterTitle ? `${Strings.customSignInSignUp.signUp}` : `${Strings.customSignInSignUp.signIn}`}</h1>
                     <LoginWithEmail /></> :
                     <div className='login-form'>
                         <img src={logo} alt="Logo" className="login-logo" />
                         <h1>{isRegister ? `${Strings.signUp.title}` : `${Strings.signIn.title}`}</h1>
                         <div className="social-login">
-                            <button className="social-login-button" onClick={logGoogleUser}> <img src={googleLogo} /> <span> Login From Google</span> </button>
+                            <button className="social-login-button" onClick={logGoogleUser}> <img src={googleLogo} /> <span> {Strings.signIn.googleLogin}</span> </button>
                             <div className="social-login-icons">
                                 <button className="social-login-button"> <img src={facebookLogo} /> </button>
                                 <button className="social-login-button"> <img src={twitterLogo} /> </button>
@@ -59,16 +87,16 @@ const Login = () => {
                             </div>
                             <div className="separator"><div className="separator-text">or</div></div>
                             <div className="social-login-email">
-                                <button className="social-login-button" onClick={handleLoginWithEmail}> <img src={emailLogo} /> Email</button>
+                                <button className="social-login-button" onClick={handleLoginWithEmail}> <img src={emailLogo} /> {Strings.signIn.email}</button>
                             </div>
                         </div>
                     </div>}
 
                 <div className="login-footer">
                     {isRegister ?
-                        <p className="description-qD3tmqQv">Already have an account? <button onClick={handleSignIn}>Sign in</button></p>
+                        <p className="description-qD3tmqQv">Already have an account? <button onClick={handleSignIn}>{Strings.signIn.title}</button></p>
                         :
-                        <p className="description-qD3tmqQv">Do not have an account? <button onClick={handleSignUp}>Sign up</button></p>
+                        <p className="description-qD3tmqQv">Do not have an account? <button onClick={handleSignUp}> {Strings.signUp.title}</button></p>
                     }
                 </div>
             </div>

@@ -2,7 +2,8 @@
 /* eslint-disable max-lines */
 const Strings = {
     signIn: {
-        title: 'Sign In',
+        title: 'Sign In', 
+        googleLogin: 'Login From Google',
         buttonLogin: 'Login',
         email: 'Email',
         password: 'Password',
@@ -14,7 +15,7 @@ const Strings = {
     signUp: {
         title: 'Sign Up',
     },
-    customSigninSignUp: {
+    customSignInSignUp: {
         signIn:"Sign in with email",
         signUp:"Sign up with email"
     },
@@ -37,6 +38,7 @@ const Strings = {
         creditsLimitPerday: 'Limit Per Day:',
         welcome: 'Welcome',
         email: 'Email',
+        profile: 'Profile Picture',
         goToCategory: 'Go To Categories',
         dashboard: 'Dashboard'
     },
