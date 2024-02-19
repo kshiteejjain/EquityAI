@@ -1,6 +1,6 @@
 .header{
     display: flex;
-    padding: 1.5rem 0;
+    padding: 0.8rem 0;
     background-color: var(--white);
   }
   .logo{

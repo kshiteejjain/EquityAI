@@ -4,8 +4,10 @@ import Login from './features/Login/Login';
 import ForgotPassword from './features/ForgotPassword/ForgotPassword';
 import Home from './features/Home/Home';
 import Profile from './features/Profile/Profile';
+import TickerDetails from './features/TickerDetails/TickerDetails';
 
 import './App.css';
+
 
 
 type Props = {
@@ -42,6 +44,7 @@ function MainApp({ isLoggedIn }: Props) {
           <Route path="/" element={<Login />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/Profile" element={<Profile />} />
+          <Route path="/TickerDetail" element={<TickerDetails />} />
         </>
       ) : (
         <>

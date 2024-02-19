@@ -1,0 +1,46 @@
+.card {
+    background-color: var(--white);
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 11px var(--grayBlue);
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    max-width: 220px;
+    margin-right: 10px;
+}
+.card:hover{
+    background-color: var(--bgHoverBlue);
+}
+.card h2 {
+    font-size: calc(var(--baseFontSize) + 1px);
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-top: 0;
+    text-align: left;
+}
+.card p {
+    font-size: calc(var(--baseFontSize) - 3px);
+    margin: 0 0 6px 0;
+    color: var(--darkGray);
+    text-align: left;
+}
+.card p.nowrap {
+    white-space: nowrap;
+}
+.card .currency_name {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: calc(var(--baseFontSize) - 4px);
+    background-color: var(--lightGray);
+    padding: 3px;
+}
+.card img{
+    border-radius: 5px;
+}
+.dolalr-icon{
+    width: 15px;
+}

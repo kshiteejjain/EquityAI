@@ -1,11 +1,14 @@
 import { useEffect, useState } from 'react';
+import logo from '../../assets/logo.svg';
+
 import './Loader.css';
+import Strings from '../../utils/en';
 
 type Props = {
     isSwipeText?: boolean;
 }
 
-const Loader = ({isSwipeText}: Props) => {
+const Loader = ({ isSwipeText }: Props) => {
     const [currentIndex, setCurrentIndex] = useState(0);
     const textArray = [
         "Let me think...",
@@ -25,10 +28,12 @@ const Loader = ({isSwipeText}: Props) => {
     return (
         <div className='loading-spinner-wrap'>
 
-            <div className="loading-spinner">
+            {/* <div className="loading-spinner">
                 <div className="ldio-oolped4bh9m"> <div>
                     <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div>
-                </div></div>
+                </div>
+            </div> */}
+            <img src={logo} alt={Strings.header.metaTitle} title={Strings.header.metaTitle} className='logo' />
 
             {isSwipeText && <div className='swipe-text'>
                 {textArray.map((text, index) => (
