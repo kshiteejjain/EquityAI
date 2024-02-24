@@ -1,5 +1,5 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import axios from 'axios';
+import { AsyncThunk, createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios, { AxiosError } from 'axios';
 
 interface TickerDetail {
   // Define your ticker detail properties here
@@ -17,26 +17,32 @@ const initialState: FetchTickerDetailState = {
   error: null,
 };
 
-export const fetchTickerDetail = createAsyncThunk(
+interface RootState {
+  tickerDetail: {
+    tickerDetail: any; // Adjust the type accordingly
+  };
+  // Other slices of your store...
+}
+
+export const fetchTickerDetail: AsyncThunk<any, string, {}> = createAsyncThunk(
   'tickerDetail',
   async (tickerId: string, { rejectWithValue, getState }) => {
     const state = getState();
-    const hasReceivedResponse = state.tickerDetail.tickerDetail !== null; // Assuming this is how you track if a response has been received
+    const hasReceivedResponse = (state as RootState).tickerDetail.tickerDetail !== null; // Assuming this is how you track if a response has been received
 
     try {
       const response = await axios.get(`https://api.polygon.io/v3/reference/tickers/${tickerId}?apiKey=2tETzCaKCfgvP8zon3uHg1QiFh1cI9uH`);
-      console.log('Detailssss response', response);
       return response?.data; // Only return serializable data
     } catch (error) {
-      if (error.response && error.response.status === 429 && !hasReceivedResponse) {
+      if ((error as AxiosError).response && (error as AxiosError).response?.status === 429 && !hasReceivedResponse) {
         // Implement exponential backoff for retries
-        const retryAfterSeconds = Math.pow(2, error.response.headers['retry-after']) || 5;
+        const retryAfterSeconds = Math.pow(2, (error as AxiosError).response?.headers['retry-after']) || 5;
         await new Promise(resolve => setTimeout(resolve, retryAfterSeconds * 1000));
         // Retry the request by calling fetchTickerDetail again
         return fetchTickerDetail(tickerId);
       } else {
         // Return the error for handling by the rejected action
-        return rejectWithValue(error.message);
+        return rejectWithValue((error as AxiosError).message);
       }
     }
   }

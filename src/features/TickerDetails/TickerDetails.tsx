@@ -1,4 +1,3 @@
-// TickerDetails.tsx
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
@@ -9,12 +8,11 @@ import Button from '../../components/Buttons/Button';
 import './TickerDetails.css';
 
 
-
 const TickerDetails = () => {
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
-    const tickerDetail = useSelector((state: RootState) => state?.tickerDetail?.tickerDetail);
-    const loadingState = useSelector((state: RootState) => state?.tickerDetail?.loading);
+    const tickerDetail = useSelector((state: any) => state?.tickerDetail?.tickerDetail);
+    const loadingState = useSelector((state: any) => state?.tickerDetail?.loading);
 
     useEffect(() => {
         if (loadingState === 'loading') {

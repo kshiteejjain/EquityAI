@@ -1,24 +1,22 @@
-// StockFinancials.tsx
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../../app/store';
 import { fetchStockFinancial } from '../APIServices/StockFinancialsSlice';
 
 import './StockFinancials.css';
 
 const StockFinancials = () => {
     const dispatch = useDispatch();
-    const financials = useSelector((state: RootState) => state?.stockFinancials?.stockFinancial?.results);
+    const financials = useSelector((state: any) => state?.stockFinancials?.stockFinancial?.results);
 
     useEffect(() => {
-        dispatch(fetchStockFinancial());
+        dispatch(fetchStockFinancial() as any);
     }, [dispatch]);
 
     return (
         <>
             <h2 className='section-heading'>Stock Financial <span className='data-length'>({financials?.length})</span></h2>
             <div className='news-section'>
-                {financials?.map((item, index) => (
+                {financials?.map((item : any, index: number) => (
                     <div className='news-card' key={index}>
                         <h2>{item?.company_name}</h2>
                         <table className='table'>
@@ -61,7 +59,7 @@ const StockFinancials = () => {
                                 <tr>
                                     <td>Keywords:</td>
                                     <td>
-                                        {item?.keywords?.map((keyword, index) => (
+                                        {item?.keywords?.map((keyword: string, index: number) => (
                                             <span className='keywords' key={index}>{keyword}{index !== item.keywords.length - 1 && ', '}</span>
                                         ))}
                                     </td>

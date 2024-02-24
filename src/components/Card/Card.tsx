@@ -19,9 +19,9 @@ type Props = {
 const Card = ({ title, image, description, currency_name, cik, composite_figi, share_class_figi, tickerId, onClick }: Props) => {
     const dispatch = useDispatch();
     const handleClick = () => {
-        if (onClick) {
-            onClick(tickerId);
-            dispatch(fetchTickerDetail(tickerId));
+        if (onClick && tickerId) { // Ensure tickerId is truthy before dispatching
+            onClick();
+            dispatch(fetchTickerDetail(tickerId) as any);
         }
     };
 

@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LoginWithEmail from '../LoginWithEmail/LoginWithEmail';
+import { getFirestore, collection, query, where, getDocs, addDoc } from 'firebase/firestore';
+import { signInWithGooglePopup } from "../../utils/firebase"
+import SignInWithEmail from '../SignInWithEmail/SignInWithEmail';
+import SignUpWithEmail from '../SignUpWithEmail/SignUpWithEmail';
+import Loader from "../../components/Loader/Loader";
 import Strings from '../../utils/en';
 import LoginImages from "../../components/LoginImages/LoginImages";
 import logo from '../../assets/logo.svg';
@@ -11,15 +15,13 @@ import appleLogo from '../../assets/apple.svg';
 import yahooLogo from '../../assets/yahoo.svg';
 import emailLogo from '../../assets/email.svg';
 
-import { signInWithGooglePopup } from "../../utils/firebase"
-
 import './Login.css';
-
 
 const Login = () => {
     const [isRegister, setIsRegister] = useState(false);
     const [isRegisterTitle, setIsRegisterTitle] = useState(false);
     const [isLoginWithEmail, setIsLoginWithEmail] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
 
     const handleSignUp = () => {
@@ -27,38 +29,70 @@ const Login = () => {
         setIsLoginWithEmail(false);
         setIsRegisterTitle(true)
     };
+
     const handleSignIn = () => {
         setIsRegister(false);
         setIsLoginWithEmail(false);
         setIsRegisterTitle(false)
-    }
+    };
+
     const handleLoginWithEmail = () => {
         setIsLoginWithEmail(true);
-    }
+    };
+
     const logGoogleUser = async () => {
         try {
             const response = await signInWithGooglePopup();
+            setIsLoading(true)
             if (response?.user) {
                 const user = response.user;
                 const idToken = await user.getIdToken();
-    
+
                 const userData = {
                     displayName: user.displayName,
                     email: user.email,
                     photoURL: user.photoURL,
-                    accessToken: idToken // Include the access token if needed
+                    accessToken: idToken
                 };
-    
-                alert(JSON.stringify(userData));
+
+                const db = getFirestore();
+                await saveUserDataToFirestore(userData, db);
+
                 localStorage.setItem('usrAcsData', JSON.stringify(userData));
-                navigate('/Home');
+
+                // Check if the user already exists in onboardingQuestions collection
+                const onboardingQuestionsCollection = collection(db, 'onboardingQuestions');
+                const email = user.email;
+                const onboardingQuestionsQuery = query(onboardingQuestionsCollection, where("email", "==", email));
+                const onboardingQuestionsQuerySnapshot = await getDocs(onboardingQuestionsQuery);
+                setIsLoading(false)
+                if (!onboardingQuestionsQuerySnapshot.empty) {
+                    navigate('/Home')
+                } else {
+                    navigate('/OnboardingQuestions')
+                }
             }
         } catch (error) {
-            console.error("Error:", error);
+            alert(`Error: ${error}`);
         }
-    }
-    
-    
+    };
+
+    const saveUserDataToFirestore = async (userData: any, db: any) => {
+        try {
+            const usersCollection = collection(db, 'users');
+
+            const q = query(usersCollection, where("email", "==", userData.email));
+            const querySnapshot = await getDocs(q);
+
+            if (querySnapshot.empty) {
+                await addDoc(usersCollection, userData);
+            } else {
+            }
+        } catch (error) {
+            alert(`Error saving user data to Firestore:: ${error}`);
+            throw error;
+        }
+    };
 
     // useEffect(() => {
     //     if (localStorage.getItem('acTkn') === 'true') {
@@ -68,12 +102,14 @@ const Login = () => {
 
     return (
         <div className='login-wrapper'>
+            {isLoading && <Loader />}
             <LoginImages />
             <div className='login-wrapper-inner'>
                 {isLoginWithEmail ? <>
                     <img src={logo} alt="Logo" className="login-logo" />
                     <h1>{isRegisterTitle ? `${Strings.customSignInSignUp.signUp}` : `${Strings.customSignInSignUp.signIn}`}</h1>
-                    <LoginWithEmail /></> :
+                    {isRegisterTitle ? <SignUpWithEmail /> : <SignInWithEmail />}
+                </> :
                     <div className='login-form'>
                         <img src={logo} alt="Logo" className="login-logo" />
                         <h1>{isRegister ? `${Strings.signUp.title}` : `${Strings.signIn.title}`}</h1>

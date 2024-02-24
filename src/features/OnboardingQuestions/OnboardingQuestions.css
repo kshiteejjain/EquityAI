@@ -1,0 +1,97 @@
+.question-container {
+    display: flex;
+    background-color: var(--white);
+    width: 90%;
+    margin: 4rem auto 4rem auto;
+}
+.visual-side {
+    width: 50%;
+}
+.question-side {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 50%;
+    padding:5rem;
+    box-sizing: border-box;
+}
+.question-container h3{
+    font-size: calc(var(--baseFontSize) + 2px);
+}
+.answer-options{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+.answer-options button{
+    background-color: var(--white);
+    margin: 0.5rem 0;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}.answer-options button img{
+    width: 17px;
+}
+.form-controls {
+    display: flex;
+    position: absolute;
+    bottom: 2rem;
+    right: 7rem;
+}
+.form-controls button:last-child{
+    border: none;
+}
+.form-controls button{
+    background-color: var(--black);
+    border-radius: 0;
+    padding: 10px 12px;
+    border-right: 1px solid var(--darkGray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.form-controls img{
+    width: 15px;
+}
+.form-controls button:disabled img{
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+.form-controls-top{
+    margin:1rem 0;
+    display: flex;
+    position: relative;
+    z-index: 1;
+}
+.form-controls-top button{
+    background-color: var(--black);
+    border-radius: 0;
+    padding: 10px 25px;
+    color: var(--white);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+}
+.form-controls-top button:hover, .form-controls button:hover{
+    background-color: var(--darkGray);
+}
+
+@keyframes slide{
+    from{
+        transform: translateY(100%);
+        opacity: 0;
+    }to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-out {
+    animation: slide 500ms;
+}

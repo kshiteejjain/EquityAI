@@ -1,19 +1,17 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, AsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 
 const initialState = {
     stockFinancial: [],
     status: 'idle',
-    error: null,
+    error: null as string | null,
 };
-
-export const fetchStockFinancial = createAsyncThunk(
+export const fetchStockFinancial: AsyncThunk<any, void, {}> = createAsyncThunk(
     'stockFinancial',
     async () => {
       try {
         const response = await axios.get('https://api.polygon.io/vX/reference/financials?apiKey=2tETzCaKCfgvP8zon3uHg1QiFh1cI9uH');
-        console.log('stock response', response);
         return response.data;
       } catch (error) {
         if (axios.isAxiosError(error) && error.response?.status === 429) {

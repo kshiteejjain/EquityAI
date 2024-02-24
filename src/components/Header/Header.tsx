@@ -9,9 +9,10 @@ import './Header.css';
 
 type Props = {
   isLoginPage?: boolean;
+  isMenu?: boolean,
   onClick?: () => void;
 };
-const Header = ({ }: Props) => {
+const Header = ({ isMenu = true }: Props) => {
   const [showCreditDetails, setShowCreditDetails] = useState(false);
 
   const navigate = useNavigate();
@@ -26,23 +27,25 @@ const Header = ({ }: Props) => {
 
   const storedUserData = JSON.parse(localStorage.getItem('usrAcsData') || '{}');
   const { displayName, email, photoURL } = storedUserData;
-
   return (
     <header className="header">
       <div className="container">
         <img src={logo} alt={Strings.header.metaTitle} title={Strings.header.metaTitle} className='logo' />
-        <nav>
+        {isMenu && <nav>
           <p onClick={() => navigate('/Home')}> Home </p>
           <p onClick={() => navigate('/Profile')}> Stocks </p>
           <p onClick={() => navigate('/Profile')}> Financial Literacy </p>
-        </nav>
+        </nav>}
         <div className="headerRight">
-          <div className="username" onClick={toggleCreditDetails}> {Strings.header.welcome} &nbsp; <span>{displayName} </span>
-            <span className='defaultProfile'><img src={photoURL ? photoURL : { logo }} /> </span>
+          <div className="username" onClick={toggleCreditDetails}> {Strings.header.welcome} &nbsp; <span>{displayName ? displayName : email.split('@')[0]} </span>
+            <span className='defaultProfile'><img src={photoURL ? photoURL : logo} /> </span>
           </div>
           <div className={`creditDetails ${showCreditDetails ? 'visible' : 'hidden'}`}>
-            <p><Button title={email} isSecondary onClick={() => navigate('/Profile')} /></p>
-            <p><Button title='My profile' isSecondary onClick={() => navigate('/Profile')} /></p>
+            {isMenu &&
+              <><p><Button title={email} isSecondary onClick={() => navigate('/Profile')} /></p>
+                <p><Button title='My profile' isSecondary onClick={() => navigate('/Profile')} /></p>
+              </>
+            }
             <Button title={Strings.header.signOut} isSecondary onClick={handleLogout} />
           </div>
         </div>
