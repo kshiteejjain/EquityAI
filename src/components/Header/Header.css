@@ -1,80 +1,206 @@
-.header{
-    display: flex;
-    padding: 0.8rem 0;
-    background-color: var(--white);
-  }
-  .logo{
+.header {
+  display: flex;
+  padding: 0.8rem 0;
+  background-color: var(--black);
+}
+
+.logo {
+  max-width: 60px;
+  margin-left: 2rem;
+  margin-right: auto;
+}
+
+.hamburger {
+  max-width: 40px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.hamburger:hover {
+  opacity: 1;
+  transition: all 0.5s ease;
+}
+
+.header .container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.username {
+  font-size: calc(var(--baseFontSize) - 2px);
+  display: flex;
+  align-items: center;
+  color: var(--mediumGray);
+}
+
+.username span {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.headerRight {
+  text-align: right;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.creditDetails.hidden {
+  display: none;
+}
+
+.creditDetails {
+  position: absolute;
+  right: 0;
+  background-color: var(--black);
+  padding: 1rem;
+  min-width: 12rem;
+  border-radius: 7px;
+  top: 50px;
+  z-index: 999;
+  text-align: left;
+}
+
+.creditDetails p {
+  font-size: var(--baseFontSize);
+  margin: 0 0 10px 0;
+  color: var(--mediumGray);
+}
+
+.creditDetails button {
+  font-weight: normal;
+}
+
+.creditDetails button:hover,
+.creditDetails button:focus {
+  color: var(--white);
+  transition: all 0.5s ease;
+}
+
+.defaultProfile {
+  margin-left: 10px;
+}
+
+.defaultProfile img {
+  max-width: 40px;
+  cursor: pointer;
+  border-radius: 40px;
+}
+
+.headerRight .down-image {
+  max-width: 12px;
+  margin-left: 12px;
+  opacity: 0.5;
+}
+
+.notifications {
+  position: relative;
+  margin: 0 40px 0 0;
+  cursor: pointer;
+}
+
+.notifications img {
+  max-width: 28px;
+  opacity: 0.6;
+}
+
+.notifications:hover img {
+  opacity: 0.7;
+  transition: all 0.5s ease;
+}
+
+.notifications .count {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary);
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--white);
+  position: absolute;
+  top: -7px;
+  right: -15px;
+}
+
+.global-search {
+  display: flex;
+  margin: 0 3rem;
+}
+
+.global-search input {
+  border-radius: 20px;
+  width: 30rem;
+}
+
+.global-search .buttonSecondary {
+  width: auto;
+  padding: 4px 10px;
+  background-color: transparent;
+  margin: 0 0 0 7px;
+  color: var(--white);
+}
+
+.select-language {
+  margin-right: 3rem;
+}
+
+.select-language select {
+  background-color: var(--black);
+  border: 1px solid var(--gray);
+  border-radius: 20px;
+  color: var(--white);
+  padding: 11px 10px;
+  width: 7rem;
+  text-align: center;
+}
+
+@media(max-width:767px) {
+  .header img {
     max-width: 60px;
   }
-  .header .container{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items:center;
-  }
-  .username{
-    font-size: calc(var(--baseFontSize) - 2px);
-    display: flex;
-    align-items: center;
-  }
-  .username span{
-    text-transform: uppercase;
-    font-weight: bold;
-  }
-  .headerRight{
-    text-align: right;
-    position: relative;
-    display: flex;
-  }
-  .creditDetails.hidden{
-    display: none;
-  }
-  .creditDetails{
-    position: absolute;
-    right: 0;
-    background-color: var(--white);
-    padding: 1rem;
-    border: 1px solid var(--gray);
-    min-width: 12rem;
-    border-radius: 7px;
-    top: 50px;
-    z-index: 999;
-    text-align: left;
-  }
-  .creditDetails p{
-    font-size: var(--baseFontSize);
-    margin: 0 0 10px 0;
-  }
-  .defaultProfile{
+
+  .logo {
     margin-left: 10px;
   }
-  .defaultProfile img{
+
+  .header .defaultProfile img {
+    max-width: 35px;
+  }
+
+  img.hamburger {
     max-width: 40px;
-    cursor: pointer;
-    border-radius: 40px;
   }
-  nav{
-    display: flex;
+
+  .notifications img {
+    max-width: 30px;
   }
-  nav p{
-    background: transparent;
-    font-size: var(--baseFontSize);
-    border: none;
-    cursor: pointer;
-    color: var(--darkGray);
-    padding: 0 10px;
-    margin: 0 2px;
+
+  .global-search {
+    display: none;
   }
-  nav p:hover, nav p:focus{
-   border: none;
-   outline: none;
-   color: var(--primary);
+
+  .select-language {
+    display: none;
   }
-  @media(max-width:767px){
-    .header img{
-      max-width: 150px;
-    }
-    .header .defaultProfile img{
-      max-width: 22px;
-    }
+
+  .welcome-text {
+    display: none;
   }
+
+  .notifications .count {
+    top: -9px;
+    right: -7px;
+  }
+  .notifications{
+    margin-right: 10px;
+    top: 6px;
+  }
+  .headerRight{
+    position: inherit;
+  }
+}

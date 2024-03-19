@@ -6,8 +6,10 @@ import Home from './features/Home/Home';
 import Profile from './features/Profile/Profile';
 import TickerDetails from './features/TickerDetails/TickerDetails';
 import OnboardingQuestions from './features/OnboardingQuestions/OnboardingQuestions';
+import SideMenu from './components/SideMenu/SideMenu';SideMenu
 
 import './App.css';
+
 
 
 
@@ -47,6 +49,7 @@ function MainApp({ isLoggedIn }: Props) {
           <Route path="/Profile" element={<Profile />} />
           <Route path="/TickerDetail" element={<TickerDetails />} />
           <Route path="/OnboardingQuestions" element={<OnboardingQuestions />} />
+          <Route path="/SideMenu" element={<SideMenu />} />
         </>
       ) : (
         <>

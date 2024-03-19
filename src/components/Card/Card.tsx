@@ -1,5 +1,3 @@
-import { useDispatch } from 'react-redux';
-import { fetchTickerDetail } from '../../features/APIServices/FetchTickerDetailSlice';
 
 import Dollar from '../../assets/dollar.svg'
 import './Card.css';
@@ -17,11 +15,9 @@ type Props = {
 }
 
 const Card = ({ title, image, description, currency_name, cik, composite_figi, share_class_figi, tickerId, onClick }: Props) => {
-    const dispatch = useDispatch();
     const handleClick = () => {
         if (onClick && tickerId) { // Ensure tickerId is truthy before dispatching
             onClick();
-            dispatch(fetchTickerDetail(tickerId) as any);
         }
     };
 

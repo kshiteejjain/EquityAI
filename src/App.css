@@ -8,6 +8,13 @@
   max-width: 90%;
   margin: 0 auto;
 }
+.container-sidemenu{
+  display: flex;
+  align-items: flex-start;
+}
+.page-sidemenu{
+  display: grid;
+}
 .page-wrapper {
   margin: 2rem 0;
 }

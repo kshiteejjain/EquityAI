@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, AsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 interface News {
@@ -25,11 +25,12 @@ const initialState: NewsState = {
     error: null,
 };
 
-export const fetchNews: AsyncThunk<any, void, {}> = createAsyncThunk(
+export const fetchNews: any = createAsyncThunk(
     'news',
     async () => {
       try {
-        const response = await axios.get('https://api.polygon.io/v2/reference/news?apiKey=2tETzCaKCfgvP8zon3uHg1QiFh1cI9uH');
+        const response = await axios.get(`https://api.polygon.io/v2/reference/news?limit=100&apiKey=${import.meta.env.VITE_POLYGON_API_KEY}`);
+        console.log(response)
         return response.data;
       } catch (error) {
         if (axios.isAxiosError(error) && error.response?.status === 429) {

@@ -68,7 +68,7 @@ const OnboardingQuestions = () => {
         },
         {
             id: 10,
-            question: "Approximatly How much capital are you willing to invest?",
+            question: "Approximately How much capital are you willing to invest?",
             options: ["less than $1,000", "$1,000 to $5,000", "$5,001 to $10,000", "$10,001 to $50,000", "More than $50,000"],
             type: "dropdown"
         },

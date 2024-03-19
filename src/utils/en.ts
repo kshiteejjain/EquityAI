@@ -32,7 +32,7 @@ const Strings = {
     },
     header: {
         signOut: 'Sign Out',
-        metaTitle: 'upEducators- Best Online Certifications & Courses for Teachers | Google & Microsoft Certified',
+        metaTitle: 'EQ AI',
         totalCredits: 'Total Credits:',
         remainingCredits: 'Remaining Credits:',
         creditsLimitPerday: 'Limit Per Day:',

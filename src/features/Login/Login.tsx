@@ -7,7 +7,7 @@ import SignUpWithEmail from '../SignUpWithEmail/SignUpWithEmail';
 import Loader from "../../components/Loader/Loader";
 import Strings from '../../utils/en';
 import LoginImages from "../../components/LoginImages/LoginImages";
-import logo from '../../assets/logo.svg';
+import logo from '../../assets/logo-black.svg';
 import googleLogo from '../../assets/google.svg';
 import facebookLogo from '../../assets/facebook.svg';
 import twitterLogo from '../../assets/twitter.svg';

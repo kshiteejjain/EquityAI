@@ -2,17 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 // import thunk from 'redux-thunk'; // Import thunk from redux-thunk
 import storage from 'redux-persist/lib/storage';
 import { combineReducers } from 'redux';
-import { persistReducer, persistStore } from 'redux-persist';
-import fetchTickersReducer from '../features/APIServices/FetchTickerSlice';
-import fetchTickerDetailReducer from '../features/APIServices/FetchTickerDetailSlice';
-import fetchNewsReducer from '../features/APIServices/FetchNews';
-import fetchStockFinancialsReducer from '../features/APIServices/StockFinancialsSlice';
+import { persistReducer, persistStore } from 'redux-persist'
+import fetchNewsReducer from '../features/APIServices/FetchNews'
 
 const reducers = combineReducers({
-  tickers: fetchTickersReducer,
-  tickerDetail: fetchTickerDetailReducer,
   news: fetchNewsReducer,
-  stockFinancials: fetchStockFinancialsReducer
 });
 
 const persistConfig = {

@@ -1,0 +1,24 @@
+.widget-wrapper{
+    display: flex;
+    align-items: center;
+    padding-top: 1rem;
+}
+.show-time{
+    border: 1px solid #e1e3eb;
+    margin-right: 1rem;
+    white-space: nowrap;
+    padding: 10px 20px;
+    font-size: calc(var(--baseFontSize) - 2px);
+    border-radius: 5px;
+}
+.tradingview-widget-copyright{
+    display: none;
+}
+@media(max-width:767px) {
+    .widget-wrapper{
+        flex-direction: column;
+    }
+    .show-time{
+        display: none;
+    }
+}

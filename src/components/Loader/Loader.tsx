@@ -33,7 +33,7 @@ const Loader = ({ isSwipeText }: Props) => {
                     <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div></div>
                 </div>
             </div> */}
-            <img src={logo} alt={Strings.header.metaTitle} title={Strings.header.metaTitle} className='logo' />
+            <img src={logo} alt={Strings.header.metaTitle} title={Strings.header.metaTitle} />
 
             {isSwipeText && <div className='swipe-text'>
                 {textArray.map((text, index) => (
