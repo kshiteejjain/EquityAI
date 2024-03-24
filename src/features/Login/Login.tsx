@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getFirestore, collection, query, where, getDocs, addDoc } from 'firebase/firestore';
+import { getFirestore, collection, query, where, getDocs, addDoc, updateDoc, doc, setDoc } from 'firebase/firestore';
 import { signInWithGooglePopup } from "../../utils/firebase"
 import SignInWithEmail from '../SignInWithEmail/SignInWithEmail';
 import SignUpWithEmail from '../SignUpWithEmail/SignUpWithEmail';
@@ -79,14 +79,20 @@ const Login = () => {
 
     const saveUserDataToFirestore = async (userData: any, db: any) => {
         try {
-            const usersCollection = collection(db, 'users');
+            const usersCollection = collection(db, 'RegisteredUsers');
 
             const q = query(usersCollection, where("email", "==", userData.email));
             const querySnapshot = await getDocs(q);
 
             if (querySnapshot.empty) {
-                await addDoc(usersCollection, userData);
+                // If no document with this email exists, add a new one
+                await setDoc(doc(usersCollection, userData.email), userData);
             } else {
+                // If a document with this email exists, you may handle it as needed
+                // For example, update the existing document
+                const docId = querySnapshot.docs[0].id;
+                const userDocRef = doc(usersCollection, docId);
+                await updateDoc(userDocRef, userData);
             }
         } catch (error) {
             alert(`Error saving user data to Firestore:: ${error}`);

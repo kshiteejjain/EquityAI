@@ -7,10 +7,23 @@
     border: 1px solid #e1e3eb;
     margin-right: 1rem;
     white-space: nowrap;
-    padding: 10px 20px;
+    padding: 10px 12px;
     font-size: calc(var(--baseFontSize) - 2px);
     border-radius: 5px;
+    display: flex;
+    align-items: center;
 }
+@keyframes rotate{
+    to{ transform: rotate(360deg); }
+  }
+.show-time img{
+    max-width: 20px;
+    margin-right: 5px;
+    animation: rotate 3s linear infinite; 
+    opacity: 0.7;
+}
+
+
 .tradingview-widget-copyright{
     display: none;
 }

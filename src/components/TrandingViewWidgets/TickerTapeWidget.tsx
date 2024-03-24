@@ -1,4 +1,5 @@
 import { TickerTape } from "react-ts-tradingview-widgets";
+import Clock from '../../assets/clock.svg';
 
 import './TickerTapeWidget.css';
 
@@ -9,8 +10,8 @@ const TickerTapeWidget = () => {
     const showTime = ((hours % 12) || 12) + ':' + date.getMinutes() + ":" + date.getSeconds() + ' ' + ampm;
     return (
         <div className="widget-wrapper">
-            <div className="show-time">{showTime}</div>
-            <TickerTape colorTheme="light"></TickerTape>
+            <div className="show-time"> <img src={Clock} /> {showTime}</div>
+            <TickerTape colorTheme="light" />
         </div>
     )
 };

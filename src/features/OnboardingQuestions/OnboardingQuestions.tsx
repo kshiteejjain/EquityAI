@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { collection, addDoc, serverTimestamp, getFirestore, query, where, getDocs } from 'firebase/firestore';
+import { collection, serverTimestamp, getFirestore, query, where, getDocs, doc, setDoc } from 'firebase/firestore';
 import Header from '../../components/Header/Header';
 import Loader from '../../components/Loader/Loader';
 import UpArrow from '../../assets/up.svg';
@@ -138,13 +138,13 @@ const OnboardingQuestions = () => {
         try {
             const db = getFirestore();
             const onboardingQuestionsCollection = collection(db, 'onboardingQuestions');
+            const docRef = doc(onboardingQuestionsCollection, email);
             const q = query(onboardingQuestionsCollection, where("email", "==", email));
             const querySnapshot = await getDocs(q);
-
+        
             if (querySnapshot.empty) {
-                await addDoc(onboardingQuestionsCollection, {
-                    question: questions.map((q, index) => ({ ...q, answer: selectedAnswers[index] })),
-                    email: email,
+                await setDoc(docRef, {
+                    questions: questions.map((q, index) => ({ ...q, answer: selectedAnswers[index] })),
                     timestamp: serverTimestamp()
                 });
                 setIsLoader(false);
@@ -153,9 +153,9 @@ const OnboardingQuestions = () => {
                 console.log("User already exists in Firestore.");
             }
         } catch (error) {
-            setIsLoader(false);
-            console.error("Error adding document: ", error);
+            console.error("Error:", error);
         }
+        
     };
 
     return (

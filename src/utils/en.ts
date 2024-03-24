@@ -46,5 +46,21 @@ const Strings = {
         Favorite: 'Bookmark',
         searchCategories: 'Search Category'
     },
+    QuickChatGesture: {
+        ChatButtonOne: 'Breaking News Overview',
+        ChatButtonTwo: 'FOMC Meeting Breakdown',
+        ChatButtonThree: 'Earnings Breakdown for Apple',
+        ChatButtonFour: 'Explain Interest Rate',
+        ChatButtonFive: 'Ask Me Anything...',
+        GoodMorning: 'Good Morning',
+        GoodAfternoon: 'Good Afternoon',
+        GoodEvening: 'Good Evening',
+        WelcomeBack: 'Welcome Back'
+    },
+    Home: {
+        FilterButtonOne: 'Latest',
+        FilterButtonTwo: 'For You',
+        FilterButtonThree: 'Discover',
+    }
 }
 export default Strings

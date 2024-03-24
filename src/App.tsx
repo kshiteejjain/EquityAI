@@ -6,12 +6,12 @@ import Home from './features/Home/Home';
 import Profile from './features/Profile/Profile';
 import TickerDetails from './features/TickerDetails/TickerDetails';
 import OnboardingQuestions from './features/OnboardingQuestions/OnboardingQuestions';
-import SideMenu from './components/SideMenu/SideMenu';SideMenu
+import SideMenu from './components/SideMenu/SideMenu';
+import Chat from './components/Chat/Chat';
+import Stocks from './features/Stocks/Stocks';
+import NewsDetail from './features/NewsDetail/NewsDetail';
 
 import './App.css';
-
-
-
 
 type Props = {
   isLoggedIn: boolean;
@@ -50,6 +50,9 @@ function MainApp({ isLoggedIn }: Props) {
           <Route path="/TickerDetail" element={<TickerDetails />} />
           <Route path="/OnboardingQuestions" element={<OnboardingQuestions />} />
           <Route path="/SideMenu" element={<SideMenu />} />
+          <Route path="/Chat" element={<Chat />} />
+          <Route path="/Stocks" element={<Stocks />} />
+          <Route path="/NewsDetail" element={<NewsDetail />} />
         </>
       ) : (
         <>

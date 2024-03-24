@@ -14,7 +14,7 @@ const TopStoriesWidget = () => {
         "isTransparent": false,
         "displayMode": "regular",
         "width": "100%",
-        "height": "700",
+        "height": "500",
         "colorTheme": "light",
         "locale": "en"
       });

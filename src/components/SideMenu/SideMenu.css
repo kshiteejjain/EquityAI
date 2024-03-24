@@ -13,8 +13,8 @@
     align-items: center;
     padding: 22px 25px 22px 0;
     cursor: pointer;
-    font-size: 18px;
-    font-weight: bold;
+    font-size: calc(var(--baseFontSize) - 1px);
+    font-weight: normal;
     border-radius: 8px 0 0 8px;
     color: var(--darkGray);
 }
@@ -25,7 +25,7 @@
 }
 
 .sidemenu li img {
-    max-width: 23px;
+    max-width: 20px;
     margin-right: 0.5rem;
 }
 

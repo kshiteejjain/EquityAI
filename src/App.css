@@ -14,6 +14,7 @@
 }
 .page-sidemenu{
   display: grid;
+  width: 100%;
 }
 .page-wrapper {
   margin: 2rem 0;

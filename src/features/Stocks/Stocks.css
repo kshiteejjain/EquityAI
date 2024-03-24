@@ -1,0 +1,12 @@
+.stock-headmap{
+  height: 100vh;
+}
+.stock-charts{
+ display: flex;
+ justify-content: space-between;
+ width: 100%;
+ margin:1rem 0;
+}
+.stock-charts-section{
+  width: 48%;
+}

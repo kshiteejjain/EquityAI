@@ -80,13 +80,13 @@
   width: 0;
   height: 0;
   border-style: solid;
-  border-right: 20px solid transparent;
-  border-left: 20px solid transparent;
-  border-top: 20px solid var(--black);
+  border-right: 14px solid transparent;
+  border-left: 14px solid transparent;
+  border-top: 14px solid var(--black);
   border-bottom: 0;
   content: '';
   position: absolute;
-  bottom: -9px;
+  bottom: -6px;
   margin: 0 auto;
   left: 0;
   right: 0;
