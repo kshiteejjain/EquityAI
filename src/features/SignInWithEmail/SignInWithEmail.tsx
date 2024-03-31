@@ -34,7 +34,7 @@ const SignInWithEmail = () => {
                     if (userData.password === userDetails.password) {
                         localStorage.setItem('usrAcsData', JSON.stringify(userDetails));
                         const email = userDetails.email;
-                        const onboardingQuestionsCollection = collection(db, 'onboardingQuestions');
+                        const onboardingQuestionsCollection = collection(db, 'OnboardingQuestions');
                         const onboardingQuestionsQuery = query(onboardingQuestionsCollection, where("email", "==", email));
                         const onboardingQuestionsQuerySnapshot = await getDocs(onboardingQuestionsQuery);
                         setIsLoading(false);

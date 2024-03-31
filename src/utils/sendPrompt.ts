@@ -5,6 +5,7 @@ export const sendPrompt = (dispatch: any, props: any) => {
   dispatch(setMessages(prompt));
   try {
     dispatch(generatorPrompt(prompt));
+    console.log('send prompt called')
   } catch (error) {
     alert(`Error dispatching generatorPrompt:', ${error}`);
   }

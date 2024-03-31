@@ -23,6 +23,7 @@
   align-items: flex-start;
   text-align: left;
   padding-bottom: 24px;
+  cursor: pointer;
 }
 
 .news-card:last-child {
@@ -41,7 +42,7 @@
   border: 1px solid var(--gray);
   padding: 3px 10px;
   display: inline-block;
-  margin-right: 7px;
+  margin:0 7px 7px 0;
   font-size: calc(var(--baseFontSize) - 4px);
   border-radius: 3px;
   font-weight: bold;

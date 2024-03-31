@@ -21,7 +21,7 @@ const OnboardingQuestions = () => {
         {
             id: 2,
             question: "How do you describe your investment experience?",
-            options: ["Beginner: I am New to investing", "Intermediate: I have some experience and understanding of investment", "Advanced: I am exerienced with a solid understanding of various investment strategies"],
+            options: ["Please Select", "Beginner: I am New to investing", "Intermediate: I have some experience and understanding of investment", "Advanced: I am experienced with a solid understanding of various investment strategies"],
             type: "dropdown"
         },
         {
@@ -33,7 +33,7 @@ const OnboardingQuestions = () => {
         {
             id: 4,
             question: "What is your annual income range?",
-            options: ["Under $25000", "$25,000 to $50,000", "$50,000 to $75,000", "$75,000 to $100,000", "Over $100,000"],
+            options: ["Please Select","Under $25000", "$25,000 to $50,000", "$50,000 to $75,000", "$75,000 to $100,000", "Over $100,000"],
             type: "dropdown"
         },
         {
@@ -51,7 +51,7 @@ const OnboardingQuestions = () => {
         {
             id: 7,
             question: "What is the highest level of education you have completed?",
-            options: ["Some high school", "High School Graduate", "Some College", "Bachelor's Degree", "Graduate Degree"],
+            options: ["Please Select","Some high school", "High School Graduate", "Some College", "Bachelor's Degree", "Graduate Degree"],
             type: "dropdown"
         },
         {
@@ -63,19 +63,19 @@ const OnboardingQuestions = () => {
         {
             id: 9,
             question: "If Known, What is your credit score range?",
-            options: ["Below 580 (Poor)", "580-669 (Fair)", "670-739 (Good)", "740-799 (Very Good)", "800+ (Excellent)", "Prefer not to say"],
+            options: ["Please Select","Below 580 (Poor)", "580-669 (Fair)", "670-739 (Good)", "740-799 (Very Good)", "800+ (Excellent)", "Prefer not to say"],
             type: "dropdown"
         },
         {
             id: 10,
             question: "Approximately How much capital are you willing to invest?",
-            options: ["less than $1,000", "$1,000 to $5,000", "$5,001 to $10,000", "$10,001 to $50,000", "More than $50,000"],
+            options: ["Please Select","less than $1,000", "$1,000 to $5,000", "$5,001 to $10,000", "$10,001 to $50,000", "More than $50,000"],
             type: "dropdown"
         },
         {
             id: 11,
             question: "Which part of US/State do you reside in?",
-            options: ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
+            options: ["Please Select", 'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'],
             type: "dropdown"
         }
     ]);
@@ -137,7 +137,7 @@ const OnboardingQuestions = () => {
         setIsLoader(true);
         try {
             const db = getFirestore();
-            const onboardingQuestionsCollection = collection(db, 'onboardingQuestions');
+            const onboardingQuestionsCollection = collection(db, 'OnboardingQuestions');
             const docRef = doc(onboardingQuestionsCollection, email);
             const q = query(onboardingQuestionsCollection, where("email", "==", email));
             const querySnapshot = await getDocs(q);

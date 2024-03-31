@@ -36,7 +36,7 @@ const SignUpWithEmail = () => {
                 localStorage.setItem('usrAcsData', JSON.stringify(userDetails));
 
                 // Check if the user already exists in onboardingQuestions collection
-                const onboardingQuestionsCollection = collection(db, 'onboardingQuestions');
+                const onboardingQuestionsCollection = collection(db, 'OnboardingQuestions');
                 const email = userDetails.email;
                 const onboardingQuestionsQuery = query(onboardingQuestionsCollection, where("email", "==", email));
                 const onboardingQuestionsQuerySnapshot = await getDocs(onboardingQuestionsQuery);

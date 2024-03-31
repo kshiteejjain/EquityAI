@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
 import Strings from '../../utils/en';
 import Header from "../../components/Header/Header";
 import Loader from '../../components/Loader/Loader';
@@ -16,7 +16,7 @@ import './Home.css';
 
 const Home = () => {
     const [isLoading, setIsLoading] = useState(false);
-    const [forYouData, setForYouData] = useState([]);
+    const [forYouData, setForYouData] = useState<{ id: string, data: any }[]>([]);
     const [filteredNews, setFilteredNews] = useState([]);
     const dispatch = useDispatch();
     const news = useSelector((state: any) => state?.news?.news?.results);
@@ -37,6 +37,35 @@ const Home = () => {
         dispatch(fetchNews());
     }, [dispatch]);
 
+    async function storeNewsDataFirestore(newsData: any) {
+        try {
+            const db = getFirestore();
+            const newsCollection = collection(db, 'NewsCollection');
+            const docRef = doc(newsCollection, newsData.title);
+            const docSnapshot = await getDoc(docRef);
+            if (!docSnapshot.exists()) {
+                await setDoc(docRef, {
+                    ...newsData,
+                    timestamp: serverTimestamp()
+                });
+                console.log("News data stored successfully.");
+                setIsLoading(false);
+            } else {
+                console.log("News already exists in Firestore:");
+            }
+        } catch (error) {
+            console.error("Error storing news data:", error);
+        } 
+    };
+
+    useEffect(() => {
+        if (news) {
+            news.forEach((newsItem: any) => {
+                storeNewsDataFirestore(newsItem);
+            });
+        }
+    }, [news]);
+
     const handleClick = (item: string) => {
         setIsActive(item);
         if (item === 'ForYou') {
@@ -48,31 +77,35 @@ const Home = () => {
         }
     }
 
-    const handleNewsClick = (title: any) => {
-        localStorage.setItem('scltdNws', title);
-        navigate('/NewsDetail');
+    const handleNewsClick = (id: string) => {
+        navigate(`/NewsDetail?id=${id}`);
     }
-
+    const storedUserData = JSON.parse(localStorage.getItem('usrAcsData') || '{}');
+    
     async function getAllUsersPersonalizationData() {
         try {
             const db = getFirestore();
             const usersPersonalizationCollection = collection(db, 'UsersPersonalization');
-
-            const querySnapshot = await getDocs(usersPersonalizationCollection);
-            const userData = [];
-
-            querySnapshot.forEach((doc) => {
-                if (doc.exists()) {
-                    userData.push({ id: doc.id, data: doc.data() });
-                }
-            });
-            setForYouData(userData);
-            return userData;
+    
+            // Fetch the document for the logged-in user based on their email (assuming email is the document ID)
+            const docRef = doc(usersPersonalizationCollection, storedUserData.email);
+            const docSnapshot = await getDoc(docRef);
+    
+            if (docSnapshot.exists()) {
+                const userData = [{ id: docSnapshot.id, data: docSnapshot.data() }];
+                setForYouData(userData);
+                return userData;
+            } else {
+                console.log("No personalization data found for the logged-in user.");
+                setForYouData([]);
+                return [];
+            }
         } catch (error) {
-            console.error("Error getting all personalization data:", error);
+            console.error("Error getting personalization data:", error);
             return null;
         }
     }
+    
 
     // Function to filter news for the 'ForYou' option
     const filterNewsForYou = () => {
@@ -82,7 +115,7 @@ const Home = () => {
             for (const userData of forYouData) {
                 const tickers = userData?.data?.tickers;
                 const publisherNames = userData?.data?.publisherNames;
-                if (tickers.some((ticker: string) => item.tickers.includes(ticker)) || publisherNames.includes(item.publisher.name)) {
+                if (tickers.some((ticker: string) => item.tickers.includes(ticker)) && publisherNames.includes(item.publisher.name)) {
                     return true;
                 }
             }
@@ -144,7 +177,7 @@ const Home = () => {
                                     thumbnail={item.image_url}
                                     published_utc={item.published_utc}
                                     description={item.description}
-                                    onClick={() => handleNewsClick(item.title)}
+                                    onClick={() => handleNewsClick(item.id)}
                                 />
                             ))}
                         </div>

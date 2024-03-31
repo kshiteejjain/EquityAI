@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { getFirestore, collection, query, where, getDocs, addDoc, updateDoc, doc, setDoc } from 'firebase/firestore';
+import { getFirestore, collection, query, where, getDocs, updateDoc, doc, setDoc } from 'firebase/firestore';
 import { signInWithGooglePopup } from "../../utils/firebase"
 import SignInWithEmail from '../SignInWithEmail/SignInWithEmail';
 import SignUpWithEmail from '../SignUpWithEmail/SignUpWithEmail';
@@ -61,15 +61,24 @@ const Login = () => {
                 localStorage.setItem('usrAcsData', JSON.stringify(userData));
 
                 // Check if the user already exists in onboardingQuestions collection
-                const onboardingQuestionsCollection = collection(db, 'onboardingQuestions');
+                const onboardingQuestionsCollection = collection(db, 'OnboardingQuestions');
                 const email = user.email;
-                const onboardingQuestionsQuery = query(onboardingQuestionsCollection, where("email", "==", email));
-                const onboardingQuestionsQuerySnapshot = await getDocs(onboardingQuestionsQuery);
-                setIsLoading(false)
-                if (!onboardingQuestionsQuerySnapshot.empty) {
-                    navigate('/Home')
+
+                const onboardingQuestionsQuerySnapshot = await getDocs(onboardingQuestionsCollection);
+                setIsLoading(false);
+
+                let isUserRegistered = false;
+
+                onboardingQuestionsQuerySnapshot.forEach(doc => {
+                    if (doc.id === email) {
+                        isUserRegistered = true;
+                    }
+                });
+
+                if (isUserRegistered) {
+                    navigate('/Home');
                 } else {
-                    navigate('/OnboardingQuestions')
+                    navigate('/OnboardingQuestions');
                 }
             }
         } catch (error) {

@@ -29,7 +29,8 @@ export const fetchNews: any = createAsyncThunk(
     'news',
     async () => {
       try {
-        const response = await axios.get(`https://api.polygon.io/v2/reference/news?limit=100&apiKey=${import.meta.env.VITE_POLYGON_API_KEY}`);
+        // const response = await axios.get(`https://api.polygon.io/v2/reference/news?limit=100&apiKey=${import.meta.env.VITE_POLYGON_API_KEY}`);
+        const response = await axios.get(`https://api.polygon.io/v2/reference/news?limit=100&apiKey=2tETzCaKCfgvP8zon3uHg1QiFh1cI9uH`);
         return response.data;
       } catch (error) {
         if (axios.isAxiosError(error) && error.response?.status === 429) {

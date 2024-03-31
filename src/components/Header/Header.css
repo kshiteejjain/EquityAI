@@ -127,26 +127,8 @@
   right: -15px;
 }
 
-.global-search {
-  display: flex;
-  margin: 0 3rem;
-}
-
-.global-search input {
-  border-radius: 20px;
-  width: 30rem;
-}
-
-.global-search .buttonSecondary {
-  width: auto;
-  padding: 4px 10px;
-  background-color: transparent;
-  margin: 0 0 0 7px;
-  color: var(--white);
-}
-
 .select-language {
-  margin-right: 3rem;
+  margin:0 3rem;
 }
 
 .select-language select {

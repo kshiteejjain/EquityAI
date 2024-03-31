@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { resetGeneratedData } from '../../features/APIServices/QuestionGeneratorSlice';
 import Button from '../Buttons/Button';
 import Strings from '../../utils/en';
 import logo from '../../assets/logo.svg';
@@ -9,6 +10,8 @@ import Notification from '../../assets/notification.svg';
 import Hamburger from '../../assets/menu.svg';
 
 import './Header.css';
+import { useDispatch } from 'react-redux';
+import HeaderSearch from '../HeaderSearch/HeaderSearch';
 
 type Props = {
   isLoginPage?: boolean;
@@ -17,13 +20,15 @@ type Props = {
   setIsMenuOpen?: (isOpen: boolean) => void;
   onClick?: () => void;
 };
-const Header = ({ isMenu = true , isMenuOpen = true, setIsMenuOpen}: Props) => {
+const Header = ({ isMenu = true, isMenuOpen = true, setIsMenuOpen }: Props) => {
   const [showCreditDetails, setShowCreditDetails] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
     navigate('/');
     localStorage.clear();
+    dispatch(resetGeneratedData())
   };
   const toggleCreditDetails = () => {
     setShowCreditDetails(!showCreditDetails);
@@ -40,13 +45,10 @@ const Header = ({ isMenu = true , isMenuOpen = true, setIsMenuOpen}: Props) => {
     <header className="header">
       <div className="container">
         <img src={Hamburger} alt='Menu' title='Menu' className='hamburger' onClick={handleSideMenu} />
-        <img src={logo} alt={Strings.header.metaTitle} title={Strings.header.metaTitle} className='logo' onClick={()=> navigate('/Home')} />
-        <div className='global-search'>
-            <input type='search' className='form-control' placeholder='Search Everything...' />
-            <Button title='Go' isSecondary />
-          </div>
+        <img src={logo} alt={Strings.header.metaTitle} title={Strings.header.metaTitle} className='logo' onClick={() => navigate('/Home')} />
+        <HeaderSearch />
         <div className="headerRight">
-        <div className='select-language'>
+          <div className='select-language'>
             <select className='form-control'>
               <option>English</option>
               <option>French</option>
