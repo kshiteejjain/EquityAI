@@ -11,7 +11,7 @@ import Hamburger from '../../assets/menu.svg';
 
 import './Header.css';
 import { useDispatch } from 'react-redux';
-import HeaderSearch from '../HeaderSearch/HeaderSearch';
+//import HeaderSearch from '../HeaderSearch/HeaderSearch';
 
 type Props = {
   isLoginPage?: boolean;
@@ -46,7 +46,7 @@ const Header = ({ isMenu = true, isMenuOpen = true, setIsMenuOpen }: Props) => {
       <div className="container">
         <img src={Hamburger} alt='Menu' title='Menu' className='hamburger' onClick={handleSideMenu} />
         <img src={logo} alt={Strings.header.metaTitle} title={Strings.header.metaTitle} className='logo' onClick={() => navigate('/Home')} />
-        <HeaderSearch />
+         
         <div className="headerRight">
           <div className='select-language'>
             <select className='form-control'>
